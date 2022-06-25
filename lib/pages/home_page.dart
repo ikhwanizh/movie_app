@@ -50,6 +50,9 @@ class HomePage extends StatelessWidget {
                     height: 42,
                     width: 252,
                     child: TextField(
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 14,
+                      ),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -57,10 +60,23 @@ class HomePage extends StatelessWidget {
                         filled: true,
                         fillColor: secondaryBlackColor,
                         hintText: 'Search Here ...',
-                        hintStyle: whiteTextStyle.copyWith(
-                          fontSize: 14,
-                        ),
+                        // labelText: 'Search Here ...',
+                        // labelStyle: whiteTextStyle.copyWith(
+                        //   fontSize: 14,
+                        // ),
                       ),
+                    ),
+                  ),
+                  Container(
+                    height: 42,
+                    width: 42,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: secondaryBlackColor,
+                    ),
+                    child: const Icon(
+                      Icons.search,
+                      color: whiteColor,
                     ),
                   ),
                 ],
