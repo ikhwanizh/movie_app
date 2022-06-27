@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/categories.dart';
+import 'package:movie_app/models/movie.dart';
 import 'package:movie_app/theme.dart';
 import 'package:movie_app/widgets/categories_card.dart';
+import 'package:movie_app/widgets/movie_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -155,24 +157,70 @@ class HomePage extends StatelessWidget {
               height: 32,
             ),
             //NOTE: MOVIES
+            MovieCard(
+              Movie(
+                id: 1,
+                imageUrl: 'assets/endgame.png',
+                rating: 9.2,
+                realeaseDate: '2018-08-03',
+                title: 'Avenger End Game',
+              ),
+            ),
+            const SizedBox(
+              height: 18,
+            ),
+            MovieCard(
+              Movie(
+                id: 2,
+                imageUrl: 'assets/spiderman_nowayhome.png',
+                rating: 9.5,
+                realeaseDate: '2021-12-17',
+                title: 'Spiderman No Way Home',
+              ),
+            ),
+            const SizedBox(
+              height: 120,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 24),
-              child: ClipRRect(
-                child: Row(
-                  children: [
-                    Container(
-                      height: 120,
-                      width: 95,
-                      decoration: BoxDecoration(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Load More',
+                    style: whiteTextStyle.copyWith(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: greenColor,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
-                      child: Image.asset(
-                        'assets/endgame.png',
-                        fit: BoxFit.cover,
-                      ),
                     ),
-                  ],
-                ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Watch List',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        const Icon(
+                          Icons.bookmark,
+                          color: blackColor,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
